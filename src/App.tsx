@@ -10,6 +10,7 @@ import { useState } from "react";
 import { Button, Container, Grid, TextField } from "@material-ui/core";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import Story from "./Tabs/story/Story";
+import { clearStorage } from "./Constant/Storage";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -103,6 +104,9 @@ function App() {
                 size="large"
                 variant="contained"
                 color="secondary"
+                onClick={() => {
+                  clearStorage();
+                }}
               >
                 Clear all data
               </Button>

@@ -86,15 +86,17 @@ export default function Story(story: any, setstory: any) {
           ADD
         </Button>
       </Grid>
-      <Button
-        style={{ float: "right" }}
-        startIcon={<AssignmentIcon />}
-        variant="contained"
-        color="primary"
-        onClick={() => copyTable()}
-      >
-        Copy
-      </Button>
+      <Grid item xs={12}>
+        <Button
+          style={{ float: "right" }}
+          startIcon={<AssignmentIcon />}
+          variant="contained"
+          color="primary"
+          onClick={() => copyTable()}
+        >
+          Copy
+        </Button>
+      </Grid>
       <TableContainer component={Paper}>
         <Table size="small" aria-label="a dense table">
           {/* <TableHead>

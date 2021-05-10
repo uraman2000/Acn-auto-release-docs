@@ -26,6 +26,7 @@ export const Data: any = (params: any) => {
     MAXINTOBJECT: `INTOBJECTNAME = '${params}'`,
     PERSON: `PERSONID = '${params}'`,
     PERSONGROUP: `PERSONGROUP = '${params}'`,
+    // MAXMENU: `(menutype = 'MODULE' and keyvalue = 'CP_PMBASIS') or moduleapp = 'CP_PMBASIS'`,
     // QUERY: `app = 'PLUSWOTR' and clausename = 'CP_ PEGHOLD' AND owner  = 'MAXADMIN'`,
     MAXRELATIONSHIP: `PARENT = '' AND NAME = '${params}'`,
     REPORT: `APPNAME = ' ' AND REPORTNAME = '${params}'`,
