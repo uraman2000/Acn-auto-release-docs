@@ -86,7 +86,7 @@ function App() {
         </AppBar>
         <Box mt={3}>
           <Grid container spacing={3}>
-            <Grid item md={9}>
+            <Grid item xs={9} md={9}>
               <TextField
                 fullWidth
                 id="story"
@@ -97,7 +97,7 @@ function App() {
                 }}
               />
             </Grid>
-            <Grid item md={3}>
+            <Grid item xs={3} md={3}>
               <Button
                 startIcon={<DeleteForeverIcon />}
                 style={{ width: "100%" }}

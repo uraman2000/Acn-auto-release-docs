@@ -16,6 +16,7 @@ import AddIcon from "@material-ui/icons/Add";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import { copyTable } from "../../Constant/CoppyTable";
 import { getStorage, setStorage, clearStorage } from "../../Constant/Storage";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 export default function Story(story: any, setstory: any) {
   const [state, setstate] = useState({
@@ -23,6 +24,15 @@ export default function Story(story: any, setstory: any) {
     summary: "",
     storyResult: [],
   });
+
+  const [show, setshow] = useState(true);
+
+  useEffect(() => {
+    if (!show) {
+      copyTable();
+    }
+    setshow(true);
+  }, [show]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -67,11 +77,17 @@ export default function Story(story: any, setstory: any) {
           onClick={() => {
             setstate((prevState: any) => {
               const mstory = story.story.match(/MX-.+/g);
+              const lastIndex =
+                prevState.storyResult.length === 0
+                  ? 0
+                  : prevState.storyResult[prevState.storyResult.length - 1].id + 1;
+
               const returnData = {
                 ...prevState,
                 storyResult: [
                   ...prevState.storyResult,
                   {
+                    id: lastIndex,
                     story: mstory,
                     asBuilt: prevState.asBuilt,
                     summary: prevState.summary,
@@ -92,23 +108,26 @@ export default function Story(story: any, setstory: any) {
           startIcon={<AssignmentIcon />}
           variant="contained"
           color="primary"
-          onClick={() => copyTable()}
+          onClick={() => setshow(false)}
         >
           Copy
         </Button>
       </Grid>
+
       <TableContainer component={Paper}>
-        <Table size="small" aria-label="a dense table">
-          {/* <TableHead>
-              <TableRow>
-                <TableCell>Story</TableCell>
-                <TableCell>Main Object</TableCell>
-                <TableCell>Where Caluse</TableCell>
-              </TableRow>
-            </TableHead> */}
+        <Table id="table" size="small" aria-label="a dense table">
+          <TableHead style={{ display: show ? "contents" : "none" }}>
+            <TableRow>
+              <TableCell>Story</TableCell>
+              <TableCell>summary</TableCell>
+              <TableCell></TableCell>
+              <TableCell>As-Built</TableCell>
+              <TableCell>Actions</TableCell>
+            </TableRow>
+          </TableHead>
           <TableBody>
             {state.storyResult.map((row: any) => (
-              <TableRow key={row.mainObject}>
+              <TableRow key={row.id}>
                 <TableCell style={{ fontSize: "21px", fontFamily: "Calibri" }}>{row.story}</TableCell>
                 <TableCell style={{ fontSize: "21px", fontFamily: "Calibri" }}>{row.summary}</TableCell>
                 <TableCell></TableCell>
@@ -116,6 +135,24 @@ export default function Story(story: any, setstory: any) {
                   <Link href={row.asBuilt} target="_blank">
                     As-Built
                   </Link>
+                </TableCell>
+                <TableCell style={{ display: show ? "block" : "none" }}>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    startIcon={<DeleteIcon />}
+                    onClick={() => {
+                      let items = state.storyResult.filter((item: any) => item.id != row.id);
+                      setstate((prevState: any) => {
+                        const resval = { ...prevState, storyResult: items };
+                        setStorage(resval);
+
+                        return resval;
+                      });
+                    }}
+                  >
+                    Delete
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}

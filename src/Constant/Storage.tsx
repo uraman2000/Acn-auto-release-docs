@@ -7,11 +7,8 @@ interface Istore {
 }
 
 export const setStorage = (value: Istore) => {
-  console.log(value);
   localStorage.setItem(RESULT, JSON.stringify(value.result));
   localStorage.setItem(STORYRESULT, JSON.stringify(value.storyResult));
-
-  console.log(localStorage.getItem(RESULT));
 };
 
 export const clearStorage = () => {

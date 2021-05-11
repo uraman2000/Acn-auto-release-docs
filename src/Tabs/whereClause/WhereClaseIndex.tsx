@@ -18,7 +18,7 @@ export default function WhereClaseIndex(story: any, setstory: any) {
   useEffect(() => {
     const fetchData = async () => {
       const store = getStorage();
-      console.log(store);
+
       if (!!store.result) {
         setstate(store);
       }
@@ -65,24 +65,27 @@ export default function WhereClaseIndex(story: any, setstory: any) {
               style={{ width: "100%" }}
               startIcon={<AddIcon />}
               onClick={() => {
-                // console.log(test);
                 setstate((prevState: any) => {
                   const dataTemp = Data(state.whereClause);
                   const test = dataTemp[prevState.mainObject];
 
                   const mstory = story.story.match(/MX-.+/g);
+                  const lastIndex =
+                    prevState.result.length === 0 ? 0 : prevState.result[prevState.result.length - 1].id + 1;
+
                   const returnData = {
                     ...prevState,
                     result: [
                       ...prevState.result,
                       {
+                        id: lastIndex,
                         story: mstory,
                         whereClause: test,
                         mainObject: prevState.mainObject,
                       },
                     ],
                   };
-                  console.log(returnData);
+
                   setStorage(returnData);
                   return returnData;
                 });
@@ -92,7 +95,17 @@ export default function WhereClaseIndex(story: any, setstory: any) {
             </Button>
           </Grid>
           <Grid item xs={12}>
-            <ResultTable data={state.result} />
+            <ResultTable
+              state={state}
+              setstate={(data: any) => {
+                setstate((prevState: any) => {
+                  const resultValue = { ...prevState, result: data };
+
+                  setStorage(resultValue);
+                  return resultValue;
+                });
+              }}
+            />
           </Grid>
         </Grid>
       </Container>
