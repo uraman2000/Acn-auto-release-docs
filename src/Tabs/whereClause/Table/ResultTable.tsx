@@ -64,7 +64,7 @@ export default function ResultTable({ state, setstate }: any) {
                       color="secondary"
                       startIcon={<DeleteIcon />}
                       onClick={() => {
-                        let items = state.result.filter((item: any) => item.id != row.id);
+                        let items = state.result.filter((item: any) => item.id !== row.id);
 
                         setstate(items);
                       }}

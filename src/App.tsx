@@ -11,6 +11,7 @@ import { Button, Container, Grid, TextField } from "@material-ui/core";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import Story from "./Tabs/story/Story";
 import { clearStorage } from "./Constant/Storage";
+import Extractor from "./Tabs/Extractor/Extractor";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -81,7 +82,7 @@ function App() {
           >
             <Tab label="Jira" {...a11yProps(0)} />
             <Tab label="Where Clause" {...a11yProps(1)} />
-            {/* <Tab label="Item Three" {...a11yProps(2)} /> */}
+            <Tab label="EXTRATINATOR" {...a11yProps(2)} />
           </Tabs>
         </AppBar>
         <Box mt={3}>
@@ -124,9 +125,9 @@ function App() {
           <TabPanel value={value} index={1} dir={theme.direction}>
             <WhereClaseIndex story={story} setstory={setstory} />
           </TabPanel>
-          {/* <TabPanel value={value} index={2} dir={theme.direction}>
-            Item Three
-          </TabPanel> */}
+          <TabPanel value={value} index={2} dir={theme.direction}>
+            <Extractor />
+          </TabPanel>
         </SwipeableViews>
       </div>
     </Container>

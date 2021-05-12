@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 import AddIcon from "@material-ui/icons/Add";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import { copyTable } from "../../Constant/CoppyTable";
-import { getStorage, setStorage, clearStorage } from "../../Constant/Storage";
+import { getStorage, setStorage } from "../../Constant/Storage";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 export default function Story(story: any, setstory: any) {
@@ -142,7 +142,7 @@ export default function Story(story: any, setstory: any) {
                     color="secondary"
                     startIcon={<DeleteIcon />}
                     onClick={() => {
-                      let items = state.storyResult.filter((item: any) => item.id != row.id);
+                      let items = state.storyResult.filter((item: any) => item.id !== row.id);
                       setstate((prevState: any) => {
                         const resval = { ...prevState, storyResult: items };
                         setStorage(resval);

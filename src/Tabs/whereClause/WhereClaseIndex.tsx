@@ -4,7 +4,7 @@ import { Autocomplete } from "@material-ui/lab";
 import AddIcon from "@material-ui/icons/Add";
 import ResultTable from "./Table/ResultTable";
 import { Data } from "../../Constant/Data";
-import { setStorage, getStorage, clearStorage } from "../../Constant/Storage";
+import { setStorage, getStorage } from "../../Constant/Storage";
 
 const data = Data("dqwdqw");
 
