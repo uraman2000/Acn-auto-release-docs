@@ -1,4 +1,4 @@
-export const Data: any = (params: any) => {
+export const Data: any = (params: any, params2: any) => {
   const dataTemplate = {
     ACTION: `ACTION = '${params}'`,
     ACTIONGROUP: `ACTION = '${params}'`,
@@ -19,7 +19,7 @@ export const Data: any = (params: any) => {
     MAXIFACECONTROL: `IFACECONTROL = '${params}'`,
     MAXLOGAPPENDER: `APPENDER = '${params}'`,
     MAXLOGGER: `LOGKEY = '${params}'`,
-    // MAXMESSAGES: `MSGGROUP = 'CP_LOCVALIDATE' AND MSGKEY = 'CP_PART3ERROR'`,
+    MAXMESSAGES: `MSGGROUP = '${params}' AND MSGKEY = '${params2}'`,
     MAXSERVICE: `SERVICENAME = '${params}'`,
     MEASUREUNIT: `MEASUREUNITID = '${params}'`,
     MAXOBJECTCFG: `OBJECTNAME = '${params}'`,
@@ -28,8 +28,8 @@ export const Data: any = (params: any) => {
     PERSONGROUP: `PERSONGROUP = '${params}'`,
     // MAXMENU: `(menutype = 'MODULE' and keyvalue = 'CP_PMBASIS') or moduleapp = 'CP_PMBASIS'`,
     // QUERY: `app = 'PLUSWOTR' and clausename = 'CP_ PEGHOLD' AND owner  = 'MAXADMIN'`,
-    MAXRELATIONSHIP: `PARENT = '' AND NAME = '${params}'`,
-    REPORT: `APPNAME = ' ' AND REPORTNAME = '${params}'`,
+    MAXRELATIONSHIP: `PARENT = '${params}' AND NAME = '${params2}'`,
+    REPORT: `APPNAME = '${params}' AND REPORTNAME = '${params2}'`,
     REPORTDESIGN: `REPORTNAME = '${params}'`,
     MAXROLE: `MAXROLE = '${params}'`,
     MAXAPPS: `APP = '${params}'`,

@@ -11,6 +11,7 @@ const data = Data("dqwdqw");
 export default function WhereClaseIndex(story: any, setstory: any) {
   const [state, setstate]: any = useState({
     whereClause: null,
+    whereClause2: null,
     mainObject: null,
     result: [],
   });
@@ -57,6 +58,22 @@ export default function WhereClaseIndex(story: any, setstory: any) {
               }}
             />
           </Grid>
+          {state.mainObject === "MAXRELATIONSHIP" || state.mainObject === "REPORT" ? (
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                id="WhereCaluse"
+                label="Where Clause2"
+                variant="outlined"
+                onChange={(e: any) => {
+                  setstate({ ...state, whereClause2: e.target.value });
+                }}
+              />
+            </Grid>
+          ) : (
+            ""
+          )}
+
           <Grid item xs={12}>
             <Button
               variant="contained"
@@ -66,7 +83,7 @@ export default function WhereClaseIndex(story: any, setstory: any) {
               startIcon={<AddIcon />}
               onClick={() => {
                 setstate((prevState: any) => {
-                  const dataTemp = Data(state.whereClause);
+                  const dataTemp = Data(state.whereClause, state.whereClause2);
                   const test = dataTemp[prevState.mainObject];
 
                   const mstory = story.story.match(/MX-.+/g);
