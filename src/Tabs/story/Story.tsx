@@ -132,9 +132,14 @@ export default function Story(story: any, setstory: any) {
                 <TableCell style={{ fontSize: "21px", fontFamily: "Calibri" }}>{row.summary}</TableCell>
                 <TableCell></TableCell>
                 <TableCell style={{ textTransform: "capitalize", fontSize: "21px", fontFamily: "Calibri" }}>
-                  <Link href={row.asBuilt} target="_blank">
-                    As-Built
-                  </Link>
+                  {row.asBuilt ? (
+                    <Link href={row.asBuilt} target="_blank">
+                      As-Built
+                    </Link>
+                  ) : (
+                    ""
+                  )}
+                  
                 </TableCell>
                 <TableCell style={{ display: show ? "block" : "none" }}>
                   <Button
