@@ -38,6 +38,7 @@ export const Data: any = (params: any, params2: any) => {
     // SECURITYRESTRICT: `OBJECTNAME = 'WORKORDER' AND ATTRIBUTENAME = 'DESCRIPTION' AND APP = 'PLUSCMT' AND CONDITIONNUM = 'CP_CMT_REGAF'`,
     SHIFT: `SHIFTNUM = '${params}'`,
     SIGOPTION: `APP = '${params}'`,
+    SYSPRES: `APP = '${params}'`,
     MAXPRESENTATION: `APP = '${params}'`,
     WFPROCESS: `PROCESSNAME = '${params}'`,
   };
