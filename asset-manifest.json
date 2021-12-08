@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Acn-auto-release-docs/static/css/main.2ae47eeb.chunk.css",
+    "main.js": "/Acn-auto-release-docs/static/js/main.375cd75b.chunk.js",
+    "main.js.map": "/Acn-auto-release-docs/static/js/main.375cd75b.chunk.js.map",
+    "runtime-main.js": "/Acn-auto-release-docs/static/js/runtime-main.c4aae28b.js",
+    "runtime-main.js.map": "/Acn-auto-release-docs/static/js/runtime-main.c4aae28b.js.map",
+    "static/js/2.fb09d2d9.chunk.js": "/Acn-auto-release-docs/static/js/2.fb09d2d9.chunk.js",
+    "static/js/2.fb09d2d9.chunk.js.map": "/Acn-auto-release-docs/static/js/2.fb09d2d9.chunk.js.map",
+    "static/js/3.9e54adc5.chunk.js": "/Acn-auto-release-docs/static/js/3.9e54adc5.chunk.js",
+    "static/js/3.9e54adc5.chunk.js.map": "/Acn-auto-release-docs/static/js/3.9e54adc5.chunk.js.map",
+    "index.html": "/Acn-auto-release-docs/index.html",
+    "static/css/main.2ae47eeb.chunk.css.map": "/Acn-auto-release-docs/static/css/main.2ae47eeb.chunk.css.map",
+    "static/js/2.fb09d2d9.chunk.js.LICENSE.txt": "/Acn-auto-release-docs/static/js/2.fb09d2d9.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c4aae28b.js",
+    "static/js/2.fb09d2d9.chunk.js",
+    "static/css/main.2ae47eeb.chunk.css",
+    "static/js/main.375cd75b.chunk.js"
+  ]
+}
